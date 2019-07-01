@@ -1,0 +1,120 @@
+.orderQuery-top{
+    background: #fff;
+    padding: 0 30rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    margin-bottom: 20rpx;
+}
+.orderQuery-top .orderQuery-title{
+    float: left;
+}
+.orderQuery-top .orderQuery-picker{
+    float: right;
+}
+.orderQuery-top .orderQuery-picker.orderQuery-date{
+    float: left;
+    color: #303133;
+}
+.orderQuery-top .orderQuery-picker .icon{
+    float: right;
+    font-size: 24px;
+}
+.container{
+    
+}
+scroll-view{
+    width: 100%;
+}
+.order-list .item{
+    margin-bottom: 20rpx;
+    background: #fff;
+}
+.order-list .item .order-title{
+    padding: 0 30rpx;               
+    height: 90rpx;
+    font-size: 26rpx;
+}
+.order-title .order-left{
+    padding: 15rpx 0;
+}
+.order-title .order-left view{
+    width: 100%;
+    line-height: 24rpx;
+}
+.order-title .order-left .order-code{
+    margin-bottom: 12rpx;
+}
+.order-title .order-right{
+    min-width: 100rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    color: #f14040;
+    background: #ffefef;
+    border-radius: 10rpx;
+    font-size: 26rpx;
+    margin: 25rpx 0;
+    text-align: center;
+    padding: 0 5rpx;
+}
+.order-area{
+    padding: 20rpx 30rpx;
+    height: 90rpx;                
+    border: 1rpx solid #eeeeee;
+    border-left: 0;
+    border-right: 0;
+}
+.bill-address,.disc-address{
+    font-size: 38rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    margin-bottom: 12rpx;
+    color: #303133;
+}
+.bill-address text,.disc-address text{
+    float: left;
+}
+.bill-address .icon,.disc-address .icon{
+    font-size: 42rpx;
+    margin-right: 10rpx;
+    color: #4582ec;
+}
+.order-link{
+    margin: 5rpx 30rpx;                          
+    color: #4582ec;
+    line-height: 30rpx;
+    font-size: 32rpx;     
+}
+.shipper,.consignee{
+    margin-left: 50rpx;
+    color: #909399;
+    font-size: 26rpx;
+}
+.order-btn{
+    height: 90rpx;
+    line-height: 90rpx;              
+    font-size: 32rpx;
+    text-align: center;
+    border-bottom: 1rpx solid #eeeeee;
+}
+.order-btn view{
+    text-align: center;
+    border: 0;
+}
+.order-btn .order-delete{
+    border-right: 1rpx solid #eeeeee;
+}
+.order-btn .icon{
+    font-size: 42rpx;
+    color: #4582ec;
+    margin-right: 10rpx;
+}
+.order-btn .icon-delete{
+    color: #909399;
+}
+.order-btn .title{
+    font-size: 32rpx;
+    color: #4582ec;
+}
+.order-btn .order-delete .title{
+    color: #909399;
+}

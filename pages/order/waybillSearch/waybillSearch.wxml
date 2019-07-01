@@ -1,0 +1,16 @@
+<view class="waybillSearch">
+    <form bindsubmit="formSubmit">
+        <view class="page__bd">
+            <view class="search-bar">
+                <view class="search-bar__form weui-flex">
+                    <icon class="icon-search_in-box" type="search" size="18"></icon>
+                    <input type="number" class="search-bar__input" placeholder="请输入运单号查询" value="{{orderNo}}" name="orderNo" />
+                </view>
+                <view class="">
+                    <button class="search-bar-btn" form-type="submit">查询</button>
+                </view>
+            </view>
+        </view>
+    </form>
+</view>
+  

@@ -1,0 +1,88 @@
+
+@font-face {
+    font-family: 'iconfont';  /* project id 785710 */
+    src: url('//at.alicdn.com/t/font_785710_2yyxiyfb1q2.eot');
+    src: url('//at.alicdn.com/t/font_785710_2yyxiyfb1q2.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_785710_2yyxiyfb1q2.woff') format('woff'),
+    url('//at.alicdn.com/t/font_785710_2yyxiyfb1q2.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_785710_2yyxiyfb1q2.svg#iconfont') format('svg');
+}
+
+.iconfont {
+    font-family:"iconfont" !important;
+    font-size:16px;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-delete:before { content: "\e648"; }
+
+.icon-edit-order-del:before { content: "\e649"; }
+
+.icon-add:before { content: "\e64a"; }
+
+.icon-go-to:before { content: "\e64b"; }
+
+.icon-edit:before { content: "\e64c"; }
+
+.icon-location-empty:before { content: "\e64d"; }
+
+.icon-arrow-down-fill:before { content: "\e64e"; }
+
+.icon-arrow-right:before { content: "\e64f"; }
+
+.icon-search:before { content: "\e650"; }
+
+.icon-arrow-down:before { content: "\e651"; }
+
+.icon-scan:before { content: "\e652"; }
+
+.icon-consignee-del:before { content: "\e653"; }
+
+.icon-lock:before { content: "\e654"; }
+
+.icon-user:before { content: "\e655"; }
+
+.icon-location:before { content: "\e656"; }
+
+.icon-goods:before { content: "\e657"; }
+
+.icon-shipper:before { content: "\e658"; }
+
+.icon-tel:before { content: "\e659"; }
+
+.icon-money:before { content: "\e65a"; }
+
+.icon-dept:before { content: "\e65b"; }
+
+.icon-consignee:before { content: "\e65c"; }
+
+.icon-edit-order:before { content: "\e65d"; }
+
+.icon-waybill-search:before { content: "\e65e"; }
+
+.icon-fa:before { content: "\e65f"; }
+
+.icon-shou:before { content: "\e660"; }
+
+.icon-point:before { content: "\e661"; }
+
+.icon-point-circle:before { content: "\e662"; }
+
+.icon-arrow-up:before { content: "\e663"; }
+
+.icon-order:before { content: "\e664"; }
+
+.icon-setting:before { content: "\e665"; }
+
+.icon-profile:before { content: "\e668"; }
+
+.icon-wode-touxiangicon:before { content: "\e666"; }
+
+.icon-choose-dept:before { content: "\e667"; }
+
+.icon-close:before { content: "\e66a"; }
+
+.icon-qrcode:before { content: "\e669"; }
+

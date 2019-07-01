@@ -1,0 +1,192 @@
+/**app.wxss**/
+@import "style/iconfont.wxss";
+@import "style/weui.wxss";
+
+.clear:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.clear{
+    zoom:1;
+}
+.hide{
+    display: none;
+}
+page{
+    font-size: 32rpx;
+    background-color: #f7f7f7;
+}
+.weui-cells{
+    font-size: 32rpx;
+    margin-top: 20rpx;
+}
+.weui-cells_after-title {
+    margin-top: 0;
+}
+.weui-flex .weui-cell::before{
+    left: 0;
+}
+.weui-flex .weui-cell:first-child::before{
+    display: block;
+    left: 30rpx;
+}
+.weui-cell{
+    padding: 0 30rpx;
+}
+.weui-cell::before{
+    left: 30rpx;
+}
+.weui-label{
+    width: 150rpx;
+}
+.weui-cell__bd{
+    height: 90rpx;
+    line-height: 90rpx;
+}
+.weui-input{
+    height: 90rpx;
+    line-height: 90rpx;
+}
+.has-right input{
+    padding-right: 30rpx;
+}
+.tms-input-right{
+    font-size: 32rpx;
+    color: black;
+}
+.weui-tab{
+    margin-top:20rpx;
+}
+.weui-navbar{
+    height: 90rpx;
+    background-color: #fff;
+}
+.weui-navbar .weui-navbar__item{
+    padding: 0;
+    line-height: 90rpx;
+}
+.weui-navbar .weui-navbar__item .weui-navbar__title{
+    font-size: 32rpx;
+    color: black;
+}
+.weui-navbar .weui-navbar__slider{
+    width:50%;
+    background:#2485f0;
+}
+.weui-tab__panel{
+    padding-top:90rpx;
+}
+scroll-view{
+    position: relative;
+    overflow-y: auto;
+}
+/*  上拉刷新，加载更多   */
+.weui-loading {
+    margin: 0 10rpx;
+    width: 40rpx;
+    height: 40rpx;
+}
+.weui-loadmore {
+    width: 65%;
+    margin: 0 auto 20rpx;
+    line-height: 50rpx;
+    font-size: 26rpx;
+    text-align: center;
+}
+.weui-loadmore__tips {
+    display: inline-block;
+    vertical-align: middle;
+}
+.tms-switch{
+    height: 32px;
+    font-size: 0;
+    line-height: 0;
+    margin-right:-6px;
+}
+.tms-picker-content{
+    width: 100%;
+    height: 90rpx;
+    text-align: right;
+}
+.isRequired{
+    color: #2485f0;
+}
+.btn-area{
+    padding: 30rpx;
+}
+button{
+    height: 80rpx;
+    line-height: 80rpx;
+    padding: 0;
+    border-radius: 4rpx;
+    background-color: #2485f0;
+    color: #fff;
+    font-size: 32rpx;
+    border: 0;
+    box-sizing: content-box;
+}
+.button-hover{
+    background-color: #2485f0;
+    color: #fff;
+}
+.border-top{
+    border-top: 1rpx solid #d9d9d9;
+}
+.border-left{
+    border-left: 1rpx solid #d9d9d9;
+}
+.border-right{
+    border-right: 1rpx solid #d9d9d9;
+}
+.border-bottom{
+    border-bottom: 1rpx solid #d9d9d9;
+}
+.text-right{
+    text-align: right;
+}
+.text-left{
+    text-align: left;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.ellipsis{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+/* 弹出框 */
+.com-sList{
+    background: white;
+    position: absolute;
+    right: 0;
+    left: auto;
+    border: 1rpx solid #d9d9d9;
+    box-sizing: border-box;
+    z-index: 100;
+    max-height: 400rpx;
+    overflow: auto;
+    padding: 0 25rpx;
+    border-radius: 10rpx;
+    box-shadow: 0 2rpx 12rpx 0 rgba(0,0,0,.1);
+}
+.com-sItem{
+    height: auto;
+    line-height: 50rpx;
+    padding: 15rpx 0;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 32rpx;
+}
+.com-sItem:last-child{
+    border-bottom: none;
+}
+.com-sItem text:first-child{
+    margin-right: 20rpx;
+}

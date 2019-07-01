@@ -1,0 +1,60 @@
+<!--myProfile.wxml-->
+<view class="myProfile">
+    <form class="page__bd" bindsubmit="formSubmit" bindreset="formReset">
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-flex">
+                <view class="weui-cell weui-cell_input weui-flex__item">
+                    <view class="weui-cell__bd">
+                        <view class="weui-label">收货人</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input name="consignee" value="{{form.consignee}}" class="weui-input text-right" placeholder="收货人姓名"/>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input weui-flex__item border-left">
+                    <input name="consigneeMobile" value="{{form.consigneeMobile}}" class="weui-input text-right" placeholder="收货人手机号" />
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">收货网点</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input name="discDeptName" value="{{form.discDeptName}}" class="weui-input text-right" placeholder="可输入简码选择，如[信阳]:xy" bindfocus="deptFocus" bindinput="deptFilter"/>
+                    <view class='com-sList' wx:if="{{filterDepts && filterDepts.length > 0 && showDeptFilter}}">
+                        <view wx:for="{{filterDepts}}" data-item="{{item}}" wx:key='' class='com-sItem' bindtap='handelDept'>{{item.deptName}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">详细地址</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input name="consigneeAddr" value="{{form.consigneeAddr}}" class="weui-input text-right" placeholder="地址详细到门牌号"/>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cells">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">货物名称</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input name="itemDesc" value="{{form.itemDesc}}" class="weui-input text-right" placeholder='货物名称'/>
+                </view>
+            </view>
+            <view class="weui-cell">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">包装</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <tms-select id="item-pkg-select" option-array='{{packageTypes}}' option-label="dictionaryName" option-value='dictionaryCode' value='{{form.itemPkg}}' bind:myget='getItemPkg' />
+                </view>
+            </view>
+        </view>
+        <view class="btn-area">
+            <button form-type="submit">保存</button>
+        </view>
+    </form>
+</view>

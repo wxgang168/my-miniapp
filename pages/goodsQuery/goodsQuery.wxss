@@ -1,0 +1,53 @@
+.goodsQuery .weui-flex{
+    height:65rpx;
+    padding:0 30rpx;
+    background-color: none;
+}
+.goodsQuery .weui-cells{
+    background-color:none;
+}
+.goodsQuery .weui-flex__item{
+    height: 65rpx;
+    text-align:left;
+}
+.goodsQuery .weui-flex__item:last-child{
+    text-align:right;
+}
+.goodsQuery .placeholder{
+    height:65rpx;
+    line-height: 65rpx;
+    font-size:30rpx;
+    color:#909399;
+}
+.goodsQuery .weui-tab-bg{
+    background:#fff;
+    margin-bottom:20rpx;
+}
+.goodsQuery .weui-tab-bg .weui-flex-1px{
+    border-top:1rpx solid #eee;
+    border-bottom:1rpx solid #eee;
+    height:90rpx;
+}
+.goodsQuery .weui-tab-bg .weui-flex-1px,.goodsQuery .weui-tab-bg .placeholder{
+    height:90rpx;
+    line-height:90rpx;
+}
+.goodsQuery .weui-tab-bg .placeholder{
+    color:#303133;
+}
+.goodsQuery .weui-tab-list{
+    padding:10rpx 0;
+    border-bottom:1rpx solid #eee;
+}
+.goodsQuery .weui-tab-list .weui-flex,.goodsQuery .weui-tab-list .weui-flex__item,.goodsQuery .weui-tab-list .placeholder{
+    height:50rpx;
+}
+.goodsQuery .weui-tab-list .placeholder{
+    line-height:50rpx;
+    font-size:26rpx;
+}
+.goodsQuery .date{
+    height:170rpx;
+    background-color:#fff;
+    padding:0 20rpx;
+}

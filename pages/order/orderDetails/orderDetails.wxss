@@ -1,0 +1,171 @@
+/* tms-mini-app/pages\order/orderDetails.wxss */
+.order-details-box .order-title{
+    width: 100%;
+    height: 90rpx;
+    line-height: 90rpx;
+    background: #4582ec;
+    text-align: center;
+    font-size: 32rpx;
+    color: #ffffff;
+    position: fixed;
+    left:0;
+    top:0;
+    z-index: 9;
+}
+.weui-navbar{
+    position: fixed;
+    left:0;
+    top: 90rpx;
+    height:90rpx;
+    margin-bottom: 20rpx;
+    background: #ffffff;
+}
+.weui-navbar .weui-navbar__item{
+    line-height: 90rpx;
+    padding: 0;
+}
+.weui-navbar .weui-bar__item_on{
+    color: #4582ec;
+}
+.weui-navbar .weui-navbar__slider{
+    background: #4582ec;
+    width: 50%;
+}
+.weui-tab__panel{
+    position: relative;
+}
+.weui-tab__panel_first{
+    padding-top: 0!important;
+}
+.weui-tab__content{
+    padding-top:110rpx;
+    width: 100%;
+    height: 100%;
+}
+.order-details .order-info{
+    padding: 20rpx 30rpx;
+    margin-bottom: 20rpx;
+    background: #ffffff;
+}
+.order-details .order-info view{
+    line-height: 30rpx;
+    font-size: 32rpx;
+    margin-bottom: 10rpx;
+}
+.order-details .order-info view:last-child{
+    margin-bottom: 0;
+}
+.order-details .order-info view text{
+    color: #909399;
+    width: 140rpx;
+    display: inline-block;
+}
+.order-address{
+    margin-bottom: 20rpx;
+    background: #ffffff;
+}
+.order-address .add-info{
+    padding: 20rpx 30rpx;
+    
+}
+.order-address .add-info view{
+    font-size: 32rpx;
+} 
+.order-address .add-info view .title{
+    color: #909399;
+    width: 140rpx;
+}
+.order-address .add-info view .user text{
+    color: #4582ec!important;
+    display: inline-block;
+    margin-left: 26rpx;
+}
+.order-address .add-info view:last-child text{
+    color: #909399;
+    width: 140rpx;
+    display: inline-block;
+} 
+.order-address .shipper-info{
+    border-bottom: 1rpx solid #eeeeee;
+}
+.weui-tab__content .waybill-box{
+    background: #ffffff;
+    padding: 20rpx 30rpx; 
+}
+.waybill-box .waybill-router{
+    
+}
+.waybill-box .waybill-router .waybill-time{
+    width: 150rpx;
+    color: #909399;
+    font-size: 26rpx;
+    text-align: right;
+}
+.waybill-progress{
+    margin: 6rpx 20rpx 0;
+    height: 100%;
+}
+.waybill-progress .progress{
+    width: 30rpx;
+    height: 100%;
+    position: relative;
+}
+.waybill-progress .progress .icon{
+    width: 16rpx;
+    height: 16rpx;
+    position: absolute;
+    left: 8rpx;
+    top: 0;
+    border-radius: 50%;
+    background: #eeeeee;
+}
+.waybill-progress .progress .long{
+    width: 2rpx;
+    height: 100%;
+    position: absolute;
+    left: 14rpx;
+    top:0;
+    background: #eeeeee;
+}
+.waybill-content .title{
+    color: #909399;
+}
+.waybill-content .title .status{
+    height: 30rpx;
+    line-height: 30rpx;
+    color: #f14040;
+    background: #ffefef;
+    border-radius: 10rpx;
+    font-size: 26rpx;
+    text-align: center;
+    display: inline-block;
+    padding: 5rpx;
+}
+.waybill-content .content{
+    margin-left: 15rpx;
+    display: inline-block;
+}
+.waybill-router:first-child .waybill-progress .progress .icon{
+    width: 28rpx;
+    height: 28rpx;
+    border: 1rpx solid #4582ec;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 9;
+    background: #ffffff;
+}
+.waybill-router:first-child .waybill-progress .progress .icon .icon-centent{
+    position: absolute;
+    left: 5rpx;
+    top: 5rpx;
+    width: 20rpx;
+    height: 20rpx;
+    border-radius: 50%;
+    background: #4582ec;
+    z-index: 9;
+}
+.waybill-router:last-child .waybill-progress .progress .long{
+    display: none;
+}

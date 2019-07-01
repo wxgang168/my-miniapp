@@ -1,0 +1,100 @@
+<view class="order-details-box">
+    <view class="order-title">
+        <text wx:if="{{preOrderStatus == '22201'}}">订单号{{orderForm.preOrderNo}}</text>
+        <text wx:else>运单号{{orderForm.orderNo}}</text>
+    </view>
+    <view class="weui-navbar" wx:if="{{preOrderStatus != '22201'}}">
+        <block wx:for="{{tabs}}" wx:key="*this">
+            <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                <view class="weui-navbar__title">{{item}}</view>
+            </view>
+        </block>
+        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+    </view>
+    <view class="weui-tab__panel {{preOrderStatus == '22201' ? 'weui-tab__panel_first' : ''}}" >
+        <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+            <view class="order-details">
+                <view class="weui-flex order-info-box">
+                    <view class="weui-flex__item order-info-left order-info">
+                        <view><text>运单类型</text>服务{{orderForm.orderModeValue}}</view>
+                        <view><text>产品类型</text>{{orderForm.serviceProductValue}}</view>
+                        <view><text>服务方式</text>{{orderForm.seviceTypeValue}}</view>
+                    </view>
+                    <view class="weui-flex__item order-info-right order-info">
+                        <view><text>发货部门</text>{{orderForm.billDeptName}}</view>
+                        <view><text>到达部门</text>{{orderForm.discDeptName}}</view>
+                        <view><text>目的地</text>{{orderForm.destDeptName}}</view>
+                    </view>
+                </view>
+                <view class="order-address">
+                    <view class="add-info shipper-info">
+                        <view class="weui-flex">
+                            <view class="weui-flex-item title">发货人</view>
+                            <view class="weui-flex-item user">{{orderForm.shipper}}<text>{{orderForm.shipperMobile}}</text><text>{{orderForm.shipperTel}}</text></view>
+                        </view>
+                        <view><text>详细地址</text>{{orderForm.shipperAddr}}</view>
+                    </view>
+                    <view class="add-info consignee-info">
+                        <view class="weui-flex">
+                            <view class="weui-flex-item title">收货人</view>
+                            <view class="weui-flex-item user">{{orderForm.consignee}}<text>{{orderForm.consigneeMobile}}</text><text>{{orderForm.consigneeTel}}</text></view>
+                        </view>
+                        <view><text>详细地址</text>{{orderForm.consigneeAddr}}</view>
+                    </view>  
+                </view>
+                <view class="order-info cargo-info">
+                    <view><text>货物名称</text>{{orderForm.itemDesc}}</view>
+                    <view><text>货物包装</text>{{orderForm.itemPkgValue}}</view>
+                    <view><text>件数</text>{{orderForm.itemQty}}</view>
+                    <view><text>总重量</text>{{orderForm.itemKgs}} Kg</view>
+                    <view><text>总体积</text>{{orderForm.itemCbm}} m³</view>
+                </view>
+                <view class="order-info cost-info">
+                    <view><text>会员卡号</text>{{orderForm.contractNo}}</view>
+                    <view><text>运费</text>{{orderForm.amountFreight}}</view>
+                    <view><text>结算方式</text>{{orderForm.amountFreightPtValue}}</view>
+                    <view><text>送货费</text>{{orderForm.amountShf}}</view>
+                    <view><text>工本费</text>{{orderForm.amountOts1}}</view>
+                    <view class="collection"><text>代收款</text>{{orderForm.amountCod}}</view>
+                    <view><text>代收时效</text>{{orderForm.amountCodServiceValue}}</view>
+                    <view><text>收款人</text>{{orderForm.contractName}}</view>
+                    <view><text>银行名称</text>{{orderForm.bankNameValue}}</view>
+                    <view><text>银行卡号</text>{{orderForm.bankAccount}}</view>
+                </view>
+                <view class="order-info cost-total">
+                    <view class="cost-summy"><text>费用合计</text>{{orderForm.totalAmount}}</view>
+                    <view><text>客户备注</text>{{orderForm.customerRemark}}</view>
+                </view>
+            </view>     
+        </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+            <view class="waybill-box">
+                <view class="weui-flex waybill-router" wx:for="{{orderRouterList}}" wx:key="key">
+                    <view>
+                        <view class="placeholder waybill-time">{{item.eventTime}}</view>
+                    </view>
+                    <view>
+                        <view class="placeholder waybill-progress">
+                            <view class="progress">
+                                <view class="icon">
+                                    <view class="icon-centent"></view>
+                                </view>
+                                <view class="long"></view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="weui-flex__item">
+                        <view class="placeholder waybill-content">
+                            <view class="title">
+                                <text class="name">【{{item.deptName}}】</text>
+                                <text class="status">{{item.eventNodeValue}}</text> 
+                            </view>
+                            <text class="content">{{item.eventLog}}</text> 
+                        </view>
+                    </view>
+                </view>
+            </view>     
+        </view>
+    </view>  
+</view>
+

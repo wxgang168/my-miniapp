@@ -1,0 +1,85 @@
+<!--myProfile.wxml-->
+<view class="myProfile">
+    <form class="page__bd" bindsubmit="formSubmit" bindreset="formReset">
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">登录账号</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input name="userCode" value="{{profileForm.userCode}}" class="weui-input text-right" placeholder="请输入"/>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">会员卡号</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input name="contractNo" value="{{profileForm.contractNo}}" class="weui-input text-right" placeholder="请输入"/>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">银行名称</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <tms-select id="bank-name-select" option-array='{{bankNameList}}' option-label="dictionaryName" option-value='dictionaryCode' value='{{profileForm.bankName}}' bind:myget='getBankName' />
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">银行卡号</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input name="bankAccount" value="{{profileForm.bankAccount}}" class="weui-input text-right" placeholder="请输入"/>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">持卡人</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input name="userName" value="{{profileForm.userName}}" class="weui-input text-right" placeholder="请输入"/>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cells__title">默认发货地址</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-flex">
+                <view class="weui-cell weui-cell_input weui-flex__item">
+                    <view class="weui-cell__bd">
+                        <view class="weui-label">发货人</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input name="shipper" value="{{profileForm.shipper}}" class="weui-input text-right" placeholder="发货人姓名"/>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input weui-flex__item border-left">
+                    <input name="mobileNo" value="{{profileForm.mobileNo}}" class="weui-input text-right" placeholder="发货人手机号" />
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">发货网点</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input name="deptName" value="{{profileForm.deptName}}" class="weui-input text-right" placeholder="可输入简码选择，如[信阳]:xy" bindfocus="deptFocus" bindblur="deptBlur" bindinput="deptFilter"/>
+                    <view class='com-sList' wx:if="{{filterDepts && filterDepts.length > 0 && showDeptFilter}}">
+                        <view wx:for="{{filterDepts}}" data-item="{{item}}" wx:key='' class='com-sItem' bindtap='handelDept'>{{item.deptName}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">详细地址</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input name="userAddr" value="{{profileForm.userAddr}}" class="weui-input text-right" placeholder="地址详细到门牌号"/>
+                </view>
+            </view>
+        </view>
+        <view class="btn-area">
+            <button form-type="submit">保存</button>
+        </view>
+    </form>
+</view>

@@ -1,0 +1,13 @@
+/**myQRCode.wxss**/
+
+page{
+    background-color: #fff;
+}
+.myQRCode{
+    text-align: center;
+}
+.myQRCode .qr-container {
+    width: 200px;
+    height: 200px;
+    margin: 50% auto;
+}

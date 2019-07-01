@@ -1,0 +1,26 @@
+{
+    "pages":[
+        "pages/myInfo/my/my",
+        "pages/dept/department",
+        "pages/login/login",
+        "pages/myInfo/myProfile/myProfile",
+        "pages/myInfo/commonGoods/commonGoods",
+        "pages/myInfo/consigneeList/consigneeList",
+        "pages/myInfo/myQRCode/myQRCode",
+        "pages/order/place/place",
+        "pages/order/orderQuery/orderQuery",      
+        "pages/order/orderDetails/orderDetails",
+        "pages/order/waybillTracking/waybillTracking",
+        "pages/order/waybillSearch/waybillSearch",  
+        "pages/goodsQuery/goodsQuery",
+        "pages/myInfo/consigneeEdit/consigneeEdit",
+        "pages/order/waybillRouter/waybillRouter"
+    ],
+    "window":{
+        "backgroundTextStyle":"light",
+        "navigationBarBackgroundColor": "#f7f7f7",
+        "navigationBarTitleText": "硕诺物流",
+        "navigationBarTextStyle":"black",
+        "backgroundColor":"#f7f7f7"
+    }
+}

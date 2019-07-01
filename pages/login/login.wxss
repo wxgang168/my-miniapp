@@ -1,0 +1,70 @@
+page{
+    background-color: #fff;
+}
+.login{
+    padding: 0 40rpx;
+}
+.login .login-welcome{
+    padding-top: 70rpx;
+    font-size: 38rpx;
+}
+.login .login-welcome text{
+    font-size: 26rpx;
+    color: #606266;
+    padding-top: 13rpx;
+    display: block;
+}
+.login .login-form{
+    margin-top: 86rpx;
+    border-radius: 8rpx;
+}
+.login .login-form .input-demo{
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    background-color: #f7f7f7;
+    box-sizing: border-box;
+    border: 1rpx solid #c3c3c3;
+}
+.login .login-form .input-demo .label .iconfont{
+    font-size: 40rpx;
+    margin-left: 20rpx;
+    margin-right: 40rpx;
+    color: #909399;
+}
+.login .login-form .input-demo input{
+    height: 90rpx;
+    line-height: 90rpx;
+}
+.login .login-form .input-demo.pwd-input{
+    margin-top: 20rpx;
+}
+.login .login-form .input-demo.pwd-input .verifyCode{
+    height: 50rpx;
+    line-height: 50rpx;
+    padding: 0 30rpx;
+}
+.login .login-form .input-demo.pwd-input .verifyCode .fetchCode{
+    color: #4582ec;
+}
+.login .protocol{
+    font-size: 26rpx;
+    line-height: 114rpx;
+}
+.login .protocol text{
+    color: #4582ec;
+}
+.login .login-btn{
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 32rpx;
+}
+.login .remark{
+    font-size: 26rpx;
+    line-height: 94rpx;
+    text-align: center;
+}

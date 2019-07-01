@@ -1,0 +1,125 @@
+<view class="department">
+    <view class="page__bd">
+        <view class="weui-cells weui-cells_after-title">
+            <form bindsubmit="fetchDeptList" bindreset="formReset">
+                <view class="weui-cell">
+                    <view class="weui-cell__hd weui-label">所在地区</view>
+                    <picker
+                        class="weui-cell__bd"
+                        mode="region"
+                        bindchange="bindRegionChange"
+                        name="region"
+                        value="{{form.region}}"
+                        placeholder="请输入所在地区">
+                        <view class="picker">
+                            {{form.region[0]}} {{form.region[1]}} {{form.region[2]}}
+                        </view>
+                    </picker>
+                    <view class="weui-cell__ft">
+                        <text class="iconfont icon-location-empty" bindtap="fetchMapPrint"></text>
+                    </view>
+                </view>
+                <view class="weui-cell">
+                    <view class="weui-cell__hd weui-label">详细地址</view>    
+                    <view class="weui-cell__bd">
+                        <input
+                            class="weui-input"
+                            value="{{form.addrText}}"
+                            type="text"
+                            name="addrText"
+                            bindinput="bindKeyInput"
+                            placeholder="键入关键字"/>
+                    </view>
+                    <view class="weui-cell__ft">
+                        <button class="button" form-type="submit">查询</button>
+                    </view>       
+                </view>
+                <view class="sug_info" wx:if="{{showAddrFilter && localList.length > 0}}">
+                    <view class="info">
+                        <text
+                            class="address-info"
+                            wx:for="{{localList}}"
+                            wx:key="item"
+                            bindtap="viewTap"
+                            data-item="{{item}}">{{item.name}}</text>
+                    </view>
+                </view>
+            </form>
+        </view>
+        <view class="weui-tab"> 
+            <view class="weui-navbar">
+                <block wx:for="{{tabs}}" wx:key="*this">
+                    <view id="{{index}}" class="weui-navbar__item {{tabIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                        <view class="weui-navbar__title">{{item}}</view>
+                    </view>
+                </block>
+                <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+            </view>
+            <view class="weui-tab__panel">
+                <view class="weui-tab__content">
+                    <view wx:if="{{tabIndex == 0}}">
+                        <scroll-view 
+                            scroll-y 
+                            style="height: {{scrollHeight}}px;" 
+                            scroll-top="{{scorllTop}}"
+                            bindscrolltoupper="refresh"
+                            bindscrolltolower="loadMore">
+                            <view class="weui-refresh weui-loadmore" hidden="{{isHideRefresh}}">
+                                <view class="weui-loading"></view>
+                                <view class="weui-loadmore__tips">上拉刷新</view>
+                            </view>
+                            <view class="weui-tab-bg card" wx:for="{{deptList}}" wx:key="*this">
+                                <view class="dept-box">
+                                    <view class="head">
+                                        <view class="title">{{item.deptName}}</view>
+                                        <view class="distance" wx:if="{{item.distance > 0}}">约{{item.distance/1000 || 0}} 公里</view>
+                                    </view>
+                                    <view class="content">
+                                        <text class="icon iconfont icon-location"></text>
+                                        <view class="text">{{item.deptAddr}}</view>
+                                    </view>
+                                    <view class="content">
+                                        <text class="icon iconfont icon-tel"></text>
+                                        <view class="text">
+                                            <text class="tel">{{item.deptMobile}}</text>
+                                            <text class="tel">{{item.deptTel}}</text>
+                                        </view>
+                                    </view>
+                                </view>
+                                <view class="weui-form-preview__ft">
+                                    <view
+                                        class="weui-form-preview__btn weui-form-preview__btn_default"
+                                        hover-class="weui-form-preview__btn_active"
+                                        bindtap="goMap" data-item="{{item}}">到这里去</view>
+                                    <navigator
+                                        class="weui-form-preview__btn weui-form-preview__btn_primary"
+                                        hover-class="weui-form-preview__btn_active"
+                                        url="/pages/order/place/place?billDeptId={{item.deptId}}&billDeptName={{item.deptName}}">立即下单</navigator>
+                                </view>
+                            </view>
+                            <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+                                <view class="weui-loading"></view>
+                                <view class="weui-loadmore__tips">正在加载</view>
+                            </view>
+                        </scroll-view>
+                    </view>
+                    <view wx:else>
+                        <view
+                            class="map_container"
+                            style="height: {{scrollHeight}}px;"> 
+                            <map
+                                class="map"
+                                id="map"
+                                longitude="{{longitude}}"
+                                latitude="{{latitude}}"
+                                scale="8"
+                                show-location="true"
+                                markers="{{markers}}"
+                                bindmarkertap="makertap"></map> 
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

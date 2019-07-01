@@ -1,0 +1,12 @@
+<!-- 
+  * 下拉框
+ -->
+ <view class='com-selectBox'>
+    <view class='com-sContent' bindtap='selectToggle'>
+        <view class='com-sTxt'>{{nowText}}</view>
+        <text class="icon iconfont icon-arrow-down-fill com-sImg" animation="{{animationData}}"></text>
+    </view>
+    <view class='com-sList' wx:if="{{selectShow}}">
+        <view wx:for="{{optionArray}}" data-index="{{index}}" wx:key='' class='com-sItem' bindtap='setText'>{{item[optionLabel]}}</view>
+    </view>
+</view>

@@ -1,0 +1,115 @@
+.consigneeList .iconfont{
+    font-size: 46rpx;
+    margin-right: 10rpx;
+}
+.consigneeList .weui-search-bar{
+    background:#fff;
+    padding: 20rpx 30rpx;
+    box-sizing:border-box;
+}
+.consigneeList .weui-search-bar .weui-search-bar__form{
+    border-radius: 0;
+    box-sizing: border-box;
+}
+.consigneeList .weui-search-bar .weui-search-bar__form .weui-search-bar__box{
+    padding: 0 20rpx;
+}
+.consigneeList .weui-search-bar .weui-search-bar__form .weui-search-bar__box .weui-icon-search_in-box{
+    font-size: 32rpx;
+    margin-right: 20rpx;
+    top:17rpx;
+    left: 20rpx;
+}
+.consigneeList .weui-search-bar .weui-search-bar__form .weui-search-bar__box .weui-search-bar__input{
+    font-size: 32rpx;
+    padding-left: 51rpx;
+}
+.weui-search-bar__label,
+.weui-search-bar__input{
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: left;
+    padding-left: 20rpx;
+    padding-right: 40rpx;
+}
+.weui-search-bar__label .weui-icon-search{
+    margin-right: 20rpx;
+    float: left;
+    font-size: 32rpx;
+}
+.weui-search-bar__label .weui-search-bar__text{
+    float: left;
+    font-size: 32rpx;
+}
+.weui-search-bar__text {
+    font-size:32rpx;
+    vertical-align:middle;
+}
+.consigneeList .weui-search-bar .weui-search-bar__form .weui-search-bar__box .weui-icon-clear{
+    top:8rpx;
+}
+.consigneeList .weui-search-bar .weui-search-bar__cancel-btn{
+    line-height: 80rpx;
+    height: 80rpx;
+}
+.weui-form-preview__value_in-hd{
+    font-size: 32rpx;
+}
+/*查询出来的结果*/
+.weui-form-preview__hd{
+    line-height: 90rpx;
+    height: 90rpx;
+    padding:0 30rpx;
+    border-bottom: 1rpx solid #d9d9d9;
+}
+.weui-form-preview__hd::after{
+    border: 0;
+}
+.weui-form-preview__hd .weui-form-preview__label{
+    line-height: 90rpx;
+    height: 90rpx;
+    font-size: 32rpx;
+    color:#303133;
+}
+.weui-form-preview__bd{
+    padding:20rpx 30rpx 18rpx;
+}
+.order-list{
+    box-sizing: border-box;
+}
+.item{
+    margin-bottom: 25rpx;
+}
+.item:first-child{
+    margin-top: 25rpx;
+}
+.weui-form-preview__label{
+    font-size: 26rpx;
+    color: #909399;
+    line-height: 38rpx;
+}
+.weui-form-preview__value{
+    text-align: left;
+    font-size: 26rpx;
+    color: #303133;
+    line-height: 38rpx;
+}
+.weui-form-preview__btn{
+    line-height: 90rpx;
+}
+/*新增收货信息按钮*/
+.consigneeList .btn-area{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+    background: #fff;
+    border-top: 1rpx solid #d9d9d9;
+}
+
+
+
+
+
+
+

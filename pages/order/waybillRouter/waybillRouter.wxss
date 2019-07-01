@@ -1,0 +1,33 @@
+@import "../orderQuery/orderQuery.wxss";
+@import "../orderDetails/orderDetails.wxss";
+.waybillRoute{
+  width: 100%;
+  height: 100%;
+}
+.waybillRouter .order-area{
+    position: fixed;
+    top: 90rpx;
+    left: 0;
+    width: 100%;
+    background: #fff;   
+}
+.waybillRouter .order-area .bill-address,.waybillRouter .order-area .disc-address{
+    font-size: 38rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    margin-bottom: 12rpx;
+    color: #303133;
+}
+.waybillRouter .order-area .order-link{
+    margin: 0 30rpx;                          
+    color: #4582ec;
+    line-height: 90rpx;
+    font-size: 32rpx;     
+}
+.waybillRouter .waybill-box{
+    position: relative;
+    top:240rpx;
+    left:0;
+    padding:20rpx 30rpx;
+    background: #fff;
+}

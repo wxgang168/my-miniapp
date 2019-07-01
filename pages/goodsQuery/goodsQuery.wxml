@@ -1,0 +1,113 @@
+<view class="goodsQuery">
+    <view class="page__bd">
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                <view class="weui-cell__hd">下单开始日期</view>    
+                <picker class="weui-cell__bd" mode="date" value="{{form.orderDateBegin}}" bindchange="bindDateBeginChange">   
+                    <view class="tms-picker-content">
+                        {{form.orderDateBegin}}
+                    </view>
+                </picker>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>       
+            </view>
+            <view class="weui-cell">
+                <view class="weui-cell__hd">下单结束日期</view>    
+                <picker class="weui-cell__bd" mode="date" value="{{form.orderDateEnd}}" bindchange="bindDateEndChange">   
+                    <view class="tms-picker-content">
+                        {{form.orderDateEnd}}
+                    </view>
+                </picker>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>       
+            </view>
+        </view>
+        <view class="weui-tab"> 
+            <view class="weui-navbar">
+                <block wx:for="{{tabs}}" wx:key="*this">
+                    <view id="{{index}}" class="weui-navbar__item {{tabIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                        <view class="weui-navbar__title">{{item}}</view>
+                    </view>
+                </block>
+                <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+            </view>
+            <view class="weui-tab__panel">
+                <view class="weui-tab__content">
+                    <view class="weui-flex" wx:if="{{tabIndex == 0}}">
+                        <view class="weui-flex__item">
+                            <view class="placeholder">运单合计 {{total}}</view>
+                        </view>
+                        <view class="weui-flex__item">
+                            <view class="placeholder">已到账合计 ¥{{totalAmount}}</view>
+                        </view>
+                    </view>
+                    <view class="weui-flex" wx:else>
+                        <view class="weui-flex__item">
+                            <view class="placeholder">运单合计 {{total}}</view>
+                        </view>
+                        <view class="weui-flex__item">
+                            <view class="placeholder">未到账合计 ¥{{totalAmount}}</view>
+                        </view>
+                    </view>
+                    <scroll-view 
+                        scroll-y 
+                        style="height: {{scrollHeight}}px;" 
+                        scroll-top="{{scorllTop}}"
+                        bindscrolltoupper="refresh"
+                        bindscrolltolower="loadMore">
+                        <view class="weui-refresh weui-loadmore" hidden="{{isHideRefresh}}">
+                            <view class="weui-loading"></view>
+                            <view class="weui-loadmore__tips">上拉刷新</view>
+                        </view>
+                        <view wx:for="{{waybillList}}" wx:key="" class="weui-tab-bg">
+                            <view class="weui-flex weui-flex-1px">
+                                <view class="weui-flex__item">
+                                    <view class="placeholder">{{item.orderNo}}</view>
+                                </view>
+                                <view class="weui-flex__item">
+                                    <view class="placeholder">￥{{item.amountCod + item.amountCodFreight - item.amountCodStuff - item.totalAmountKf}}</view>
+                                </view>
+                            </view>
+                            <view class="weui-tab-list">
+                                <view class="weui-flex">
+                                    <view class="weui-flex__item">
+                                        <view class="placeholder">银行名称</view>
+                                    </view>
+                                    <view class="weui-flex__item">
+                                        <view class="placeholder">{{item.bankName}}</view>
+                                    </view>
+                                </view>
+                                <view class="weui-flex">
+                                    <view class="weui-flex__item">
+                                        <view class="placeholder">银行账号</view>
+                                    </view>
+                                    <view class="weui-flex__item">
+                                        <view class="placeholder">{{item.bankAccount}}</view>
+                                    </view>
+                                </view>
+                                <view wx:if="{{tabIndex == 0}}" class="weui-flex">
+                                    <view class="weui-flex__item">
+                                        <view class="placeholder">发款时间</view>
+                                    </view>
+                                    <view class="weui-flex__item">
+                                        <view class="placeholder">{{item.paymentTime}}</view>
+                                    </view>
+                                </view>
+                                <view wx:else class="weui-flex">
+                                    <view class="weui-flex__item">
+                                        <view class="placeholder">签收时间</view>
+                                    </view>
+                                    <view class="weui-flex__item">
+                                        <view class="placeholder">{{item.shpTime}}</view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+                            <view class="weui-loading"></view>
+                            <view class="weui-loadmore__tips">正在加载</view>
+                        </view>
+                    </scroll-view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

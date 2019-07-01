@@ -1,0 +1,48 @@
+
+.weui-flex{
+  background-color: #fff;
+  border-bottom: 1rpx solid #e6e6ea;
+  padding:20rpx 30rpx;
+}
+.itemDesc{
+  width: 60%;
+  height: 80rpx;
+  line-height: 80rpx;
+  border:1rpx solid #e6e6ea;
+  padding-left:20rpx;
+  box-sizing: border-box; 
+}
+.weui-input{
+  height: 80rpx;
+  line-height: 80rpx;
+  box-sizing: border-box; 
+}
+.itemPkg{
+  width: 27%;
+  height: 80rpx;
+  line-height: 80rpx;
+  border:1rpx solid #e6e6ea;
+  border-left: 0;
+  box-sizing: border-box;
+  padding-right: 12rpx;
+}
+.btn{
+  width: 19%;
+  padding:0;
+  padding-left: 20rpx;
+}
+.button-sp-area{
+    margin: 0 auto;
+    padding-top: 15px;
+    width: 60%;
+}
+.goods-list .weui-flex:first-child{
+  margin-top:25rpx;
+}
+.itemPkgValue{
+  padding: 0 20rpx 0 20rpx;
+}
+.placeholder{
+  padding:0 40rpx 0 40rpx;
+}
+

@@ -1,0 +1,40 @@
+<!-- 常发货物页面 -->
+<view class="page__bd page__bd_spacing">
+    <form class="page__bd" bindsubmit="formSubmit" bindreset="formReset">
+        <view class="weui-flex">
+            <view class="weui-flex__item itemDesc">
+                <input name="itemDesc" value="{{profileForm.itemDesc}}" class="weui-input" placeholder="常用货物名称"/>
+            </view>
+            <view class="itemPkg">
+                <tms-select id="itemPkg-name-select" option-array='{{selectArray}}' option-label="dictionaryName" option-value='dictionaryCode' value='{{profileForm.itemPkg}}' bind:myget='getItemPkg' />
+            </view>
+            <view class="btn">
+                <button form-type="submit">添加</button>
+            </view>
+        </view>
+        <view class="" style="padding:0rpx">
+          <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight}}px;" class="goods-list" bindscroll="scroll">
+            <view class="weui-flex" wx:for="{{goodsList}}" wx:key="key">
+                <view class="weui-flex__item">
+                    <view class="">
+                        <text>{{item.itemDesc}}</text>
+                    </view>
+                </view>
+                <view class="itemPkgValue">
+                    <view class="">
+                        <text>{{item.itemPkgValue}}</text>
+                    </view>
+                </view>
+                <view class="del">
+                    <view class="placeholder" data-text="{{item.preItemId}}"  bindtap="openConfirm">
+                        <icon size='32rpx' type='clear'></icon> 
+                    </view>
+                </view>
+            </view>
+          </scroll-view>
+          <view class="body-view">
+            <loading hidden="{{hidden}}" bindchange="loadingChange">加载中...</loading>
+          </view>
+        </view>
+    </form>
+</view>

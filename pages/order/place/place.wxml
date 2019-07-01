@@ -1,0 +1,280 @@
+<!--place.wxml-->
+<view class="place">
+    <form bindsubmit="formSubmit">
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">发货信息</view>
+                </view>
+                <view class="weui-cell__bd text-right item-btn" bindtap="checkSend">
+                    <text wx:if="{{sendBtn}}" class="iconfont icon-arrow-up"></text>
+                    <text wx:else class="iconfont icon-arrow-down"></text>
+                </view>
+            </view>
+            <view class="{{sendBtn ? '' : 'hide'}}">
+                <view class="weui-flex">
+                    <view class="weui-cell weui-cell_input weui-flex__item">
+                        <view class="weui-cell__hd">
+                            <view class="weui-label isRequired">发货人</view>
+                        </view>
+                        <view class="weui-cell__bd">
+                            <input name="shipper" value="{{form.shipper}}" class="weui-input text-right" placeholder="发货人姓名"/>
+                        </view>
+                    </view>
+                    <view class="weui-cell weui-cell_input weui-flex__item border-left">
+                        <input name="shipperMobile" value="{{form.shipperMobile}}" class="weui-input text-right" placeholder="发货人手机号" />
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">会员卡号</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input name="contractNo" value="{{form.contractNo}}" class="weui-input text-right" placeholder="请输入"/>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">发货网点</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input name="billDeptName" value="{{form.billDeptName}}" class="weui-input text-right" placeholder="可输入简码选择，如[信阳]:xy" bindfocus="billFocus" bindinput="billFilter"/>
+                        <view class='com-sList' wx:if="{{filterBillDepts && filterBillDepts.length > 0 && showBillFilter}}">
+                            <view wx:for="{{filterBillDepts}}" data-item="{{item}}" wx:key='' class='com-sItem' bindtap='handelBillDept'>{{item.deptName}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell__bd weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">上门接货</view>
+                </view>
+                <view class="weui-cell__bd text-right tms-switch">
+                    <switch name="forReceive" color="#2485f0" checked="{{form.forReceive}}" bindchange="forReceiveChange" />
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input {{form.forReceive ? '' : 'hide'}}">
+                <view class="weui-cell__hd">
+                    <view class="weui-label isRequired">接货地址</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input name="shipperAddr" value="{{form.shipperAddr}}" class="weui-input text-right" placeholder="请输入"/>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cells">
+            <view class="weui-flex">
+                <view class="weui-cell weui-cell_input weui-flex__item">
+                    <view class="weui-cell__bd">
+                        <view class="weui-label isRequired">收货人</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input name="consignee" value="{{form.consignee}}" class="weui-input text-right" placeholder="收货人姓名" bindfocus="consigneeNameFocus" bindinput="consigneeNameFilter"/>
+                        <view class='com-sList' wx:if="{{filterConsigneeList && filterConsigneeList.length > 0 && showConsigneeFilter}}">
+                            <view wx:for="{{filterConsigneeList}}" data-item="{{item}}" wx:key='' class='com-sItem' bindtap='handelConsignee'>
+                                <text class="ellipsis">{{item.consignee}}</text>
+                                <text class="ellipsis">{{item.consigneeMobile}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input weui-flex__item border-left">
+                    <input name="consigneeMobile" value="{{form.consigneeMobile}}" class="weui-input text-right" placeholder="收货人手机号" />
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">到达地</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input name="discDeptName" value="{{form.discDeptName}}" class="weui-input text-right" placeholder="可输入简码选择，如[信阳]:xy" bindfocus="discFocus" bindinput="discFilter"/>
+                    <view class='com-sList' wx:if="{{filterDiscDepts && filterDiscDepts.length > 0 && showDiscFilter}}">
+                        <view wx:for="{{filterDiscDepts}}" data-item="{{item}}" wx:key='' class='com-sItem' bindtap='handelDiscDept'>{{item.deptName}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label isRequired">目的地</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input name="destDeptName" value="{{form.destDeptName}}" class="weui-input text-right" placeholder="请输入目的地"/>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell__bd weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">送货</view>
+                </view>
+                <view class="weui-cell__bd text-right tms-switch">
+                    <switch name="forDelivery" color="#2485f0" checked="{{form.forDelivery}}" bindchange="forDeliveryChange" />
+                </view>
+            </view>
+            <block>
+                <view class="weui-cell weui-cell_input {{form.forDelivery ? '' : 'hide'}}">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label isRequired">送货类型</view>
+                    </view>
+                    <view class="weui-cell__bd tms-checker-inline">
+                        <view wx:for="{{deliveryTypes}}" wx:key="{{item.dictionaryCode}}" data-value="{{item.dictionaryCode}}" class="tms-checker__item {{form.deliveryType == item.dictionaryCode ? 'checked' : ''}}" bindtap="checkDeliveryType">{{item.dictionaryName}}</view>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input {{form.forDelivery ? '' : 'hide'}}">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label isRequired">送货地址</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input name="consigneeAddr" value="{{form.consigneeAddr}}" class="weui-input text-right" placeholder="地址详细到门牌号"/>
+                    </view>
+                </view>
+            </block>
+        </view>
+        <view class="weui-cells">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label isRequired">货物名称</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input name="itemDesc" value="{{form.itemDesc}}" class="weui-input text-right" placeholder="请输入货物名称"/>
+                </view>
+                <view class="weui-cell__ft item-btn" bindtap="checkGoods">
+                    <text wx:if="{{goodsBtn}}" class="iconfont icon-arrow-up"></text>
+                    <text wx:else class="iconfont icon-arrow-down"></text>
+                </view>
+            </view>
+            <view wx:if="{{goodsBtn && commonGoodsList.length > 0}}" class="weui-cell">
+                <view class="tms-checker left">
+                    <view wx:for="{{commonGoodsList}}" wx:key="" data-item="{{item}}" class="tms-checker__item" bindtap="commonGoodClick">{{item.itemDesc}}</view>
+                </view>
+            </view>
+            <view class="weui-flex">
+                <view class="weui-cell weui-cell_input weui-flex__item">
+                    <view class="weui-cell__bd">
+                        <view class="weui-label isRequired">数量</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input name="itemQty" value="{{form.itemQty}}" class="weui-input text-right" placeholder="请输入数量"/>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input weui-flex__item border-left">
+                    <view class="weui-cell__bd">
+                        <tms-select id="item-pkg-select" option-array='{{packageTypes}}' option-label="dictionaryName" option-value='dictionaryCode' value='{{form.itemPkg}}' bind:myget='getItemPkg' />
+                    </view>
+                </view>
+            </view>
+            <view class="weui-flex">
+                <view class="weui-cell weui-cell_input has-right weui-flex__item">
+                    <view class="weui-cell__bd">
+                        <view class="weui-label">总重量</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input name="itemKgs" value="{{form.itemKgs}}" class="weui-input text-right" placeholder="请输入"/>
+                    </view>
+                    <view class="weui-cell__ft">
+                        <text class="tms-input-right">Kg</text>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input has-right weui-flex__item border-left">
+                    <view class="weui-cell__bd">
+                        <view class="weui-label">总体积</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input name="itemCbm" value="{{form.itemCbm}}" class="weui-input text-right" placeholder="请输入"/>
+                    </view>
+                    <view class="weui-cell__ft">
+                        <text class="tms-input-right">m³</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cells">
+            <view class="weui-cell weui-cell_input has-right">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">运费</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input name="amountFreight" value="{{form.amountFreight}}" class="weui-input text-right" placeholder="请输入运费"/>
+                </view>
+                <view class="weui-cell__ft">
+                    <text class="tms-input-right">元</text>
+                </view>
+            </view>
+            <view class="weui-cell">
+                <input class="hide" name="amountFreightPt" />
+                <view class="tms-checker">
+                    <view wx:for="{{amountFreightPts}}" wx:key="{{item.dictionaryCode}}" data-value="{{item.dictionaryCode}}" class="tms-checker__item {{form.amountFreightPt == item.dictionaryCode ? 'checked' : ''}}" bindtap="checkAmountPaidType">{{item.dictionaryName}}</view>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input has-right">
+                <view class="weui-cell__bd">
+                    <view class="weui-label">代收货款</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input name="amountCod" value="{{form.amountCod}}" class="weui-input text-right" placeholder="请输入代收货款"/>
+                </view>
+                <view class="weui-cell__ft">
+                    <text class="tms-input-right">元</text>
+                </view>
+            </view>
+            <!-- <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">代收时效</view>
+                </view>
+                <input class="hide" name="amountCodService" />
+                <view class="weui-cell__bd tms-checker-inline">
+                    <view wx:for="{{amountCodServices}}" wx:key="{{item.dictionaryCode}}" data-value="{{item.dictionaryCode}}" class="tms-checker__item {{form.amountCodService == item.dictionaryCode ? 'checked' : ''}}" bindtap="checkAmountCodService">{{item.dictionaryName}}</view>
+                </view>
+            </view> -->
+            <view class="weui-cell weui-cell_input has-right">
+                <view class="weui-cell__bd">
+                    <view class="weui-label">保价费</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input name="amountBxf" value="{{form.amountBxf}}" class="weui-input text-right" placeholder="请输入保价费"/>
+                </view>
+                <view class="weui-cell__ft">
+                    <text class="tms-input-right">元</text>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell__bd weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">带回单</view>
+                </view>
+                <view class="weui-cell__bd text-right tms-switch">
+                    <switch name="forHd" color="#2485f0" checked="{{form.forHd}}" bindchange="forHdChange" />
+                </view>
+            </view>
+            <block>
+                <view class="weui-cell weui-cell_input {{form.forHd ? '' : 'hide'}}">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label isRequired">回单类型</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <tms-select id="hd-mode-select" option-array='{{hdTypes}}' option-label="dictionaryName" option-value='dictionaryCode' value="{{form.hdType}}" bind:myget='getHdType' />
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input has-right {{form.forHd ? '' : 'hide'}}">
+                    <view class="weui-cell__bd">
+                        <view class="weui-label isRequired">回单数量</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input name="hdCount" value="{{form.hdCount}}" class="weui-input text-right" placeholder="请输入回单数量"/>
+                    </view>
+                    <view class="weui-cell__ft">
+                        <text class="tms-input-right">份</text>
+                    </view>
+                </view>
+            </block>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">备注</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input name="customerRemark" value="{{form.customerRemark}}" class="weui-input text-right" placeholder="请输入备注"/>
+                </view>
+            </view>
+        </view>
+        <view class="btn-area">
+            <button form-type="submit">提交</button>
+        </view>
+    </form>
+</view>

@@ -1,0 +1,47 @@
+<view class="waybillRouter order-details-box orderQuery" id="waybillRouter">
+    <view class="order-title">
+        <text>运单号{{orderNo}}</text>
+    </view>
+    <view class="weui-flex order-area">
+        <view class="order-bill">
+            <view class="bill-address">
+                <text class="icon iconfont icon-fa"></text>
+                <text>{{orderForm.billDeptName}} </text>
+            </view>
+        </view>
+        <view class="order-link">······</view>
+        <view class="order-disc">
+            <view class="disc-address">
+                <text class="icon iconfont icon-shou"></text>
+                <text>{{orderForm.discDeptName}} </text>
+            </view>
+        </view>
+    </view>
+    <view class="waybill-box">
+        <view class="weui-flex waybill-router" wx:for="{{orderRouterList}}" wx:key="key">
+            <view>
+                <view class="placeholder waybill-time">{{item.eventTime}}</view>
+            </view>
+            <view>
+                <view class="placeholder waybill-progress">
+                    <view class="progress">
+                        <view class="icon">
+                            <view class="icon-centent"></view>
+                        </view>
+                        <view class="long"></view>
+                    </view>
+                </view>
+            </view>
+            <view class="weui-flex__item">
+                <view class="placeholder waybill-content">
+                    <view class="title">
+                        <text class="name">【{{item.deptName}}】</text>
+                        <text class="status">{{item.eventNodeValue}}</text> 
+                    </view>
+                    <text class="content">{{item.eventLog}}</text> 
+                </view>
+            </view>
+        </view>
+    </view>      
+</view>
+

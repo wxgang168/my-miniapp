@@ -1,0 +1,71 @@
+<view class="waybillTracking">
+    <view class="page__bd">
+        <view class="weui-search-bar">
+            <view class="weui-search-bar__form">
+                <navigator
+                    url="/pages/order/waybillSearch/waybillSearch"
+                    hover-class="navigator-hover">
+                    <icon class="weui-icon-search_in-box" type="search" size="18"></icon>
+                    <input type="text" class="weui-search-bar__input" placeholder="请输入运单号查询" />
+                </navigator>
+            </view>
+        </view>
+    </view>
+    <view class="weui-navbar">
+        <block wx:for="{{tabs}}" wx:key="*this">
+            <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                <view class="weui-navbar__title">{{item}}</view>
+            </view>
+        </block>
+        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+    </view>
+    <view class="weui-tab__panel">
+        <scroll-view scroll-y style="height: {{scrollHeight}}px;" scroll-top="{{scorllTop}}" bindscrolltoupper="refresh" bindscrolltolower="loadMore"  class="order-list">
+            <view class="weui-refresh weui-loadmore" hidden="{{isHideRefresh}}">
+                <view class="weui-loading"></view>
+                <view class="weui-loadmore__tips">上拉刷新</view>
+            </view>
+            <view class="item" wx:for="{{orderList}}" wx:key="key">
+                <navigator
+                    url="/pages/order/waybillRouter/waybillRouter?orderNo={{item.orderNo}}"
+                    hover-class="navigator-hover">
+                    <view class="weui-flex order-title">
+                        <view class="weui-flex__item order-left">
+                            <view class="order-code">运单号：
+                                <text>{{item.orderNo}}</text>
+                            </view>
+                            <view class="order-date">下单时间： 
+                                <text>{{item.orderDate}}</text>
+                            </view>
+                        </view>
+                        <view class="order-right">
+                            <view>{{item.orderStatusValue}}</view> 
+                        </view>
+                    </view>
+                    <view class="weui-flex order-area">
+                        <view class="order-bill">
+                            <view class="bill-address">
+                                <text class="icon iconfont icon-fa"></text>
+                                <text>{{item.billDeptName}} </text>
+                            </view>
+                            <text class="shipper">{{item.shipper}}</text>
+                        </view>
+                        <view class="order-link">······</view>
+                        <view class="order-disc">
+                            <view class="disc-address">
+                                <text class="icon iconfont icon-shou"></text>
+                                <text>{{item.discDeptName}} </text>
+                            </view>
+                            <text class="consignee">{{item.consignee}}</text>
+                        </view>
+                    </view>
+                </navigator>
+            </view>
+            <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+                <view class="weui-loading"></view>
+                <view class="weui-loadmore__tips">正在加载</view>
+            </view>
+        </scroll-view>
+    </view> 
+</view>
+  

@@ -1,0 +1,35 @@
+@import "../orderQuery/orderQuery.wxss";
+.weui-search-bar{
+    background: #ffffff;
+    padding: 20rpx 30rpx;
+}
+.weui-search-bar__form{
+    height: 80rpx;
+    width: 100%;
+    line-height: 80rpx;
+}
+.weui-search-bar__input{
+    height: 80rpx;
+    line-height: 80rpx;
+    margin-left: 80rpx;
+}
+.weui-navbar{
+    top: 125rpx;
+    height:90rpx;
+    margin-bottom: 20rpx;
+    background: #ffffff;
+}
+.weui-navbar .weui-navbar__item{
+    line-height: 90rpx;
+    padding: 0;
+}
+.weui-navbar .weui-bar__item_on{
+    color: #4582ec;
+}
+.weui-navbar .weui-navbar__slider{
+    background: #4582ec;
+    width: 50%;
+}
+.weui-tab__panel{
+    padding-top: 110rpx;
+}

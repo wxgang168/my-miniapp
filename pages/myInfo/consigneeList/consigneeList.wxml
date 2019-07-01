@@ -1,0 +1,56 @@
+<view class="consigneeList">
+    <view class="weui-search-bar">
+        <view class="weui-search-bar__form">
+            <view class="weui-search-bar__box">
+                <icon class="weui-icon-search_in-box" type="search" size="34rpx"></icon>
+                <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" data-preConsigneeId="{{item.preConsigneeId}}" />
+                <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                    <icon type="clear" size="34rpx"></icon>
+                </view>
+            </view>
+            <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+                <icon class="weui-icon-search" type="search" size="34rpx"></icon>
+                <view class="weui-search-bar__text">搜索</view>
+            </label>
+        </view>
+        <view class="weui-search-bar__cancel-btn isRequired" hidden="{{!inputShowed}}"  bindtap='selectPreCustConsigneeList' >查询           </view>
+    </view>
+    <view >
+        <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight}}px;" class="order-list" >
+            <view class="item" wx:for="{{preConsigneeList}}" wx:key="item.preConsigneeId">
+                <view hover-class="weui-cell_active">
+                    <view class="weui-form-preview">
+                        <view class="weui-form-preview__hd">
+                            <view class="weui-form-preview__label">{{item.consignee}}</view>
+                            <navigator class="weui-form-preview__value_in-hd isRequired">{{item.consigneeMobile}}</navigator>
+                        </view>
+                        <view class="weui-form-preview__bd">
+                            <view class="weui-form-preview__item">
+                                <view class="weui-form-preview__label">货物信息</view>
+                                <view class="weui-form-preview__value">
+                                  <text style="margin-right:20rpx;">{{item.itemDesc}}</text>
+                                  <text>{{item.itemPkgValue}}</text>
+                                </view>
+                            </view>
+                            <view class="weui-form-preview__item">
+                                <view class="weui-form-preview__label">收货网点</view>
+                                <view class="weui-form-preview__value">{{item.discDeptName}}</view>
+                            </view>
+                            <view class="weui-form-preview__item">
+                                <view class="weui-form-preview__label">详细地址</view>
+                                <view class="weui-form-preview__value">{{item.consigneeAddr}}</view>
+                            </view>
+                        </view>
+                        <view class="weui-form-preview__ft">
+                            <view class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active" data-preConsigneeId="{{item.preConsigneeId}}" bindtap='deleteConsignee'><icon class='iconfont icon-delete' size="32rpx"></icon>删除</view>
+                            <view class="weui-form-preview__btn weui-form-preview__btn_primary isRequired" hover-class="weui-form-preview__btn_active" data-preConsigneeId="{{item.preConsigneeId}}" bindtap='editConsignee'><icon class='iconfont icon-edit' size="32rpx"></icon>修改</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+    </view> 
+    <view class="btn-area">
+        <button bindtap='addConsignee'>新增收货人信息</button>
+    </view>
+</view>

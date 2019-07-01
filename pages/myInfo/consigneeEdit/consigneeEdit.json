@@ -1,0 +1,6 @@
+{
+  	"usingComponents": {
+    	"tms-select": "../../../components/tmsSelect/tmsSelect"
+  	},
+  	"navigationBarTitleText": "收货人信息"
+}

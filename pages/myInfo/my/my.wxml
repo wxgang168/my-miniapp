@@ -1,0 +1,19 @@
+<!--index.wxml-->
+<view class="my">
+    <view class="my-head">
+        <view class="img">
+            <image src="../../../images/head.png" alt="我是头像" />
+        </view>
+        <view class="tel">{{userObj.userCode}}</view>
+    </view>
+    <view class='my-main'>
+        <view class="weui-grids">
+            <block wx:for="{{enterBtns}}" wx:key="key">
+                <navigator url="{{item.link}}" class="weui-grid" hover-class="weui-grid_active">
+                    <text class="icon iconfont {{item.icon}}"></text>
+                    <view class="label">{{item.label}}</view>
+                </navigator>
+            </block>
+        </view>
+    </view>
+</view>

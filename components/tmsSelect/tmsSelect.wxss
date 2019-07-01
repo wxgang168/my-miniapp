@@ -1,0 +1,30 @@
+.com-selectBox{
+    width: 100%;
+    position: relative;
+}
+.com-sContent{
+    background: transparent;
+    font-size: 32rpx;
+    position: relative;
+    height: 90rpx;
+    line-height: 90rpx;
+    display: block;
+    text-overflow: clip;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.com-sImg{
+    position: absolute;
+    right: -12rpx;
+    top: 0;
+    transition: all .3s ease;
+    font-size: 52rpx;
+}
+.com-sTxt{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding:0 36rpx 0;
+    font-size: 32rpx;
+    text-align: right;
+}

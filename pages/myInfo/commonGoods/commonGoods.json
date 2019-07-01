@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "tms-select": "../../../components/tmsSelect/tmsSelect"
+  },
+  "navigationBarTitleText": "常发货物"
+}
